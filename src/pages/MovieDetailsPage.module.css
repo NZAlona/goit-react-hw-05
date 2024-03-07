@@ -1,0 +1,41 @@
+.wrapperPhoto {
+  width: 280px;
+  padding: 10px;
+  margin-left: 25px;
+  margin-top: 15px;
+  background-color: lightgray;
+}
+
+.wrapperDiv1 {
+  position: relative;
+}
+
+.wrapperDiv2 {
+  position: absolute;
+  left: 350px;
+  top: 30px;
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.wrapperDiv3 {
+  position: absolute;
+  left: 350px;
+  top: 120px;
+}
+
+.overview {
+  margin-bottom: 15px;
+}
+
+.text {
+  margin-bottom: 15px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
