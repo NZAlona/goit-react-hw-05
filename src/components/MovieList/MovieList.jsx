@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import css from './MovieList.module.css';
 
 export default function MovieList({ items }) {
@@ -6,7 +7,8 @@ export default function MovieList({ items }) {
       <ul className={css.list}>
         {items.map(item => (
           <li key={item.id}>
-            <a href="#">{item.title}</a>
+            <Link to={`/movies/${item.id}`}>{item.title}</Link>
+            {/* <a href="#">{item.title}</a> */}
           </li>
         ))}
       </ul>
