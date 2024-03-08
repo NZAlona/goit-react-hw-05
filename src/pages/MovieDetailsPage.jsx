@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink, Outlet } from 'react-router-dom';
 import { fetchMovieById } from '../movies-api';
 import { useEffect, useState } from 'react';
 import Loader from '../components/Loader/Loader';
@@ -60,6 +60,19 @@ export default function MovieDetailsPage() {
         </div>
       )}
       {loading && <Loader />}
+
+      <div className={css.sectionWrapper}>
+        <h3 className={css.sectionTitle}>Additional Information</h3>
+        <ul className={css.sectionList}>
+          <li>
+            <NavLink to="cast">Cast</NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews">Reviews</NavLink>
+          </li>
+        </ul>
+        <Outlet />
+      </div>
     </>
   );
 }
