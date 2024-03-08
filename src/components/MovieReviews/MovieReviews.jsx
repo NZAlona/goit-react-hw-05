@@ -2,6 +2,8 @@ import { fetchMovieReviews } from '../../movies-api';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import css from './MovieReviews.module.css';
+import Loader from '../Loader/Loader';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 export default function MovieReviews() {
   const { movieId } = useParams();
@@ -29,7 +31,9 @@ export default function MovieReviews() {
 
   return (
     <>
-      {movieReviews.length > 0 && (
+      {error && <ErrorMessage />}
+
+      {movieReviews.length > 0 ? (
         <ul className={css.list}>
           {movieReviews.map(({ id, content, author }) => {
             return (
@@ -40,7 +44,10 @@ export default function MovieReviews() {
             );
           })}
         </ul>
+      ) : (
+        <p className={css.text}>We do not have any reviews for this movie yet</p>
       )}
+      {loading && <Loader />}
     </>
   );
 }
