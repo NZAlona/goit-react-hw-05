@@ -6,11 +6,19 @@
 
 .actorName {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.7;
   margin-top: 4px;
+  text-align: center;
 }
 
 .text {
   composes: actorName;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
 }

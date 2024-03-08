@@ -17,7 +17,7 @@ export default function MovieCast() {
         setLoading(true);
         setError(false);
         const data = await fetchMovieCredits(movieId);
-        console.log(data.cast);
+        // console.log(data.cast);
         setMovieCredits(data.cast);
       } catch (error) {
         setError(true);
@@ -33,15 +33,15 @@ export default function MovieCast() {
     <>
       {error && <ErrorMessage />}
       {movieCredits.length > 0 && (
-        <ul>
+        <ul className={css.list}>
           {movieCredits.map(({ id, name, character, profile_path }) => {
             return (
               <li key={id}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${profile_path}`}
                   alt={name}
-                  width="120"
-                  height="160"
+                  width="290"
+                  height="340"
                   className={css.photo}
                 />
                 <p className={css.actorName}>{name}</p>
