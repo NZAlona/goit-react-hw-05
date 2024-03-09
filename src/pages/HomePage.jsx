@@ -30,7 +30,15 @@ export default function HomePage() {
   return (
     <>
       <div>
-        <h1>Tranding today</h1>
+        <h1
+          style={{
+            marginTop: 10,
+            marginLeft: 15,
+            marginBottom: 10,
+          }}
+        >
+          Tranding today
+        </h1>
         {error && <ErrorMessage />}
         {movies.length > 0 && <MovieList items={movies} />}
         {loading && <Loader />}

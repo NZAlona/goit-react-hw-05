@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import css from './MovieCast.module.css';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import defaultImg from '../../assets/unvailable.png';
 
 export default function MovieCast() {
   const { movieId } = useParams();
@@ -11,8 +12,8 @@ export default function MovieCast() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const defaultImg =
-    'https://dummyimage.com/250x340/edeaed/000003.jpg&text=Profile+photo+unavailable';
+  //   const defaultImg =
+  //     'https://dummyimage.com/250x340/edeaed/000003.jpg&text=Profile+photo+unavailable';
 
   useEffect(() => {
     async function fetchMovieData() {
@@ -43,8 +44,8 @@ export default function MovieCast() {
                 <img
                   src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
                   alt={name}
-                  width="250"
-                  height="375"
+                  width="265"
+                  height="345"
                   className={css.photo}
                 />
 
