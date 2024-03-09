@@ -1,7 +1,6 @@
 .photo {
   margin-top: 10px;
-  padding: 10px;
-  background-color: lightgray;
+  border: 10px solid lightgray;
 }
 
 .actorName {

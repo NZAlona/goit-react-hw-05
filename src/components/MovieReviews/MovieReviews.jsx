@@ -45,7 +45,7 @@ export default function MovieReviews() {
           })}
         </ul>
       ) : (
-        <p className={css.text}>We do not have any reviews for this movie yet</p>
+        !loading && <p className={css.text}>We do not have any reviews for this movie yet</p>
       )}
       {loading && <Loader />}
     </>

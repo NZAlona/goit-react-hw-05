@@ -11,6 +11,9 @@ export default function MovieCast() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  const defaultImg =
+    'https://dummyimage.com/250x340/edeaed/000003.jpg&text=Profile+photo+unavailable';
+
   useEffect(() => {
     async function fetchMovieData() {
       try {
@@ -38,12 +41,13 @@ export default function MovieCast() {
             return (
               <li key={id}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                  src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
                   alt={name}
-                  width="290"
-                  height="340"
+                  width="250"
+                  height="375"
                   className={css.photo}
                 />
+
                 <p className={css.actorName}>{name}</p>
                 <p className={css.text}>Character: {character}</p>
               </li>
