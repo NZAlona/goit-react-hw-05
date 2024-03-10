@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import Loader from '../components/Loader/Loader';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import css from '../pages/MovieDetailsPage.module.css';
+import defaultImg from '../assets/unvailable.png';
+import { GrGroup } from 'react-icons/gr';
+import { GoCodeReview } from 'react-icons/go';
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -17,7 +20,7 @@ export default function MovieDetailsPage() {
         setLoading(true);
         setError(false);
         const data = await fetchMovieById(movieId);
-        // console.log(data);
+
         setMovieById(data);
       } catch (error) {
         setError(true);
@@ -41,7 +44,11 @@ export default function MovieDetailsPage() {
 
           <div className={css.wrapperPhoto}>
             <img
-              src={`https://image.tmdb.org/t/p/w500${movieById.poster_path}`}
+              src={
+                movieById.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movieById.poster_path}`
+                  : defaultImg
+              }
               alt={`${movieById.title}`}
               width="280"
               height="350"
@@ -65,10 +72,20 @@ export default function MovieDetailsPage() {
         <h3 className={css.sectionTitle}>Additional Information</h3>
         <ul className={css.sectionList}>
           <li>
-            <NavLink to="cast">Cast</NavLink>
+            <NavLink to="cast" className={css.link}>
+              <span>
+                <GrGroup size="24" className={css.icon} />
+              </span>
+              Cast
+            </NavLink>
           </li>
           <li>
-            <NavLink to="reviews">Reviews</NavLink>
+            <NavLink to="reviews" className={css.link}>
+              <span>
+                <GoCodeReview size="24" className={css.icon} />
+              </span>
+              Reviews
+            </NavLink>
           </li>
         </ul>
         <Outlet />

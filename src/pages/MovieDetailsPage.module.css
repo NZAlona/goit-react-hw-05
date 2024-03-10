@@ -52,9 +52,19 @@
   border-bottom: 1px solid lightgrey;
   padding-left: 55px;
   padding-bottom: 15px;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .sectionWrapper {
   margin-left: 25px;
   padding-bottom: 15px;
+}
+
+.icon {
+  margin-right: 10px;
+  vertical-align: middle;
 }

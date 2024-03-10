@@ -1,0 +1,27 @@
+.form {
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.inputField {
+  width: 320px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.inputField:focus {
+  border: 1px solid blue;
+}
+
+.btn {
+  width: 85px;
+  height: 32px;
+  font-size: 16px;
+  padding: 5px 5px;
+  border-radius: 4px;
+  border: 1px solid grey;
+  margin-left: 5px;
+}

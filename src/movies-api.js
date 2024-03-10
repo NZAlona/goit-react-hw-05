@@ -32,3 +32,11 @@ export const fetchMovieReviews = async movieId => {
   );
   return response.data;
 };
+
+export const fetchMovieByQuery = async query => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?query=${query}`,
+    options
+  );
+  return response.data;
+};
