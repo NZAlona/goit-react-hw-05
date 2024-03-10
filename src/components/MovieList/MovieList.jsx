@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import css from './MovieList.module.css';
 import { TbMovie } from 'react-icons/tb';
 
 export default function MovieList({ items }) {
+  const location = useLocation();
+
   return (
     <>
       <ul className={css.list}>
@@ -12,7 +14,9 @@ export default function MovieList({ items }) {
               <TbMovie size="24" />
             </span>
 
-            <Link to={`/movies/${item.id}`}>{item.title}</Link>
+            <Link to={`/movies/${item.id}`} state={location}>
+              {item.title}
+            </Link>
           </li>
         ))}
       </ul>

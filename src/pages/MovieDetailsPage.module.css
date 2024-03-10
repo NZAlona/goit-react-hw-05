@@ -2,7 +2,6 @@
   width: 280px;
   padding: 10px;
   margin-left: 25px;
-  margin-top: 15px;
   background-color: lightgray;
 }
 
@@ -42,7 +41,6 @@
 
 .sectionTitle {
   margin-top: 25px;
-
   border-top: 1px solid lightgrey;
   margin-bottom: 10px;
   padding-top: 15px;
@@ -67,4 +65,12 @@
 .icon {
   margin-right: 10px;
   vertical-align: middle;
+}
+
+.iconBack {
+  margin-left: 20px;
+}
+
+.back {
+  margin-top: 10px;
 }

@@ -1,18 +1,23 @@
-import { useParams, NavLink, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Outlet, Link, useLocation } from 'react-router-dom';
 import { fetchMovieById } from '../movies-api';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import Loader from '../components/Loader/Loader';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import css from '../pages/MovieDetailsPage.module.css';
 import defaultImg from '../assets/unvailable.png';
 import { GrGroup } from 'react-icons/gr';
 import { GoCodeReview } from 'react-icons/go';
+import { IoArrowBackCircleOutline } from 'react-icons/io5';
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movieById, setMovieById] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const location = useLocation();
+
+  const backLinkRef = useRef(location.state ?? '/');
 
   useEffect(() => {
     async function fetchMovieData() {
@@ -35,6 +40,11 @@ export default function MovieDetailsPage() {
   return (
     <>
       {error && <ErrorMessage />}
+      <Link to={backLinkRef.current}>
+        <span className={css.iconBack}>
+          <IoArrowBackCircleOutline size="36" className={css.back} />
+        </span>
+      </Link>
       {movieById && (
         <div className={css.wrapperDiv1}>
           <div className={css.wrapperDiv2}>
@@ -88,7 +98,9 @@ export default function MovieDetailsPage() {
             </NavLink>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );

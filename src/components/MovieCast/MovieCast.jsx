@@ -12,9 +12,6 @@ export default function MovieCast() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  //   const defaultImg =
-  //     'https://dummyimage.com/250x340/edeaed/000003.jpg&text=Profile+photo+unavailable';
-
   useEffect(() => {
     async function fetchMovieData() {
       try {
