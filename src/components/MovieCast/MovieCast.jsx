@@ -18,7 +18,6 @@ export default function MovieCast() {
         setLoading(true);
         setError(false);
         const data = await fetchMovieCredits(movieId);
-        // console.log(data.cast);
         setMovieCredits(data.cast);
       } catch (error) {
         setError(true);
@@ -33,7 +32,7 @@ export default function MovieCast() {
   return (
     <>
       {error && <ErrorMessage />}
-      {movieCredits.length > 0 && (
+      {movieCredits.length > 0 ? (
         <ul className={css.list}>
           {movieCredits.map(({ id, name, character, profile_path }) => {
             return (
@@ -52,8 +51,33 @@ export default function MovieCast() {
             );
           })}
         </ul>
+      ) : (
+        !loading && <p>We do not have any profile details yet</p>
       )}
       {loading && <Loader />}
     </>
   );
 }
+
+//  {
+//    movieCredits.length > 0 && (
+//      <ul className={css.list}>
+//        {movieCredits.map(({ id, name, character, profile_path }) => {
+//          return (
+//            <li key={id}>
+//              <img
+//                src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
+//                alt={name}
+//                width="265"
+//                height="345"
+//                className={css.photo}
+//              />
+
+//              <p className={css.actorName}>{name}</p>
+//              <p className={css.text}>Character: {character}</p>
+//            </li>
+//          );
+//        })}
+//      </ul>
+//    );
+//  }

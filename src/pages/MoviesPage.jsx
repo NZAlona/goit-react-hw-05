@@ -22,6 +22,10 @@ export default function MoviesPage() {
   };
 
   useEffect(() => {
+    if (queryFilter === '') {
+      return;
+    }
+
     async function fetchMovies() {
       try {
         setLoading(true);
@@ -74,7 +78,7 @@ export default function MoviesPage() {
       <Toaster />
 
       {error && <ErrorMessage />}
-      <MovieList items={movieList} />
+      {movieList.length > 0 && <MovieList items={movieList} />}
     </>
   );
 }
