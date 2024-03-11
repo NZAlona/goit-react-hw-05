@@ -52,32 +52,9 @@ export default function MovieCast() {
           })}
         </ul>
       ) : (
-        !loading && <p>We do not have any profile details yet</p>
+        !loading && <p className={css.message}>We do not have any profile details yet</p>
       )}
       {loading && <Loader />}
     </>
   );
 }
-
-//  {
-//    movieCredits.length > 0 && (
-//      <ul className={css.list}>
-//        {movieCredits.map(({ id, name, character, profile_path }) => {
-//          return (
-//            <li key={id}>
-//              <img
-//                src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
-//                alt={name}
-//                width="265"
-//                height="345"
-//                className={css.photo}
-//              />
-
-//              <p className={css.actorName}>{name}</p>
-//              <p className={css.text}>Character: {character}</p>
-//            </li>
-//          );
-//        })}
-//      </ul>
-//    );
-//  }
